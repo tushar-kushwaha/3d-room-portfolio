@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@400;500;600&display=swap");
+
+/* ---- Overlay ---- */
+.sign-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 63, 71, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: overlay-fade 0.25s ease-out;
+  padding: 24px;
+}
+
+@keyframes overlay-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---- Card ---- */
+.sign-card {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: min(640px, 88vh);
+  overflow-y: auto;
+  background: #fdf6f0;
+  border-radius: 22px;
+  padding: 40px 44px 36px;
+  box-shadow:
+    0 24px 60px rgba(74, 63, 71, 0.3),
+    0 2px 0 rgba(255, 255, 255, 0.6) inset;
+  font-family: "Quicksand", sans-serif;
+  color: #4a3f47;
+  animation: card-pop 0.35s cubic-bezier(0.22, 1.4, 0.36, 1);
+  transform-origin: center bottom;
+}
+
+@keyframes card-pop {
+  0% { opacity: 0; transform: translateY(28px) rotate(-1.5deg) scale(0.94); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* Accent bar per sign, echoing the room's pastel palette */
+.sign-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 22px 22px 0 0;
+}
+.accent-lavender::before { background: linear-gradient(90deg, #c9b6e4, #d9cad1); }
+.accent-pink::before { background: linear-gradient(90deg, #f0b8c4, #f7d6d9); }
+.accent-teal::before { background: linear-gradient(90deg, #a8d8d0, #cfeae4); }
+
+/* Little washi-tape corners for the handmade/corkboard feel */
+.sign-tape {
+  position: absolute;
+  width: 64px;
+  height: 26px;
+  top: -12px;
+  opacity: 0.85;
+  border-radius: 3px;
+}
+.sign-tape-left {
+  left: 36px;
+  background: repeating-linear-gradient(45deg, #f0b8c4, #f0b8c4 6px, #f7d6d9 6px, #f7d6d9 12px);
+  transform: rotate(-8deg);
+}
+.sign-tape-right {
+  right: 36px;
+  background: repeating-linear-gradient(45deg, #c9b6e4, #c9b6e4 6px, #dccdee 6px, #dccdee 12px);
+  transform: rotate(7deg);
+}
+
+.sign-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(74, 63, 71, 0.08);
+  color: #4a3f47;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.sign-close:hover {
+  background: rgba(74, 63, 71, 0.16);
+  transform: rotate(90deg);
+}
+
+/* ---- Header ---- */
+.sign-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.sign-icon {
+  font-size: 30px;
+}
+.sign-header h2 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+  color: #4a3f47;
+}
+
+/* ---- About page ---- */
+.about-layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+.about-photo-frame {
+  flex: 0 0 140px;
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(74, 63, 71, 0.18);
+  transform: rotate(-3deg);
+}
+.about-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-text p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+  font-size: 15.5px;
+}
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.skill-pill {
+  background: #f2e8f7;
+  color: #6a5578;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+@media (max-width: 560px) {
+  .about-layout { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* ---- Work page ---- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.project-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(74, 63, 71, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(74, 63, 71, 0.16);
+}
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #f2e8f7;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-card h3 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 17px;
+  margin: 4px 0 6px;
+  color: #4a3f47;
+}
+.project-card p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+  color: #6b5f66;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.project-tags span {
+  background: #fbe4e8;
+  color: #a15b6b;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.project-links {
+  display: flex;
+  gap: 14px;
+}
+.project-links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8a5fa8;
+  text-decoration: none;
+}
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Contact page ---- */
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 8px 0 4px;
+}
+.contact-message {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0;
+}
+.contact-email {
+  font-family: "Fredoka", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #4a3f47;
+  background: #cfeae4;
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.contact-email:hover {
+  transform: scale(1.05);
+}
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #6a5578;
+  background: #f2e8f7;
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.social-links a:hover {
+  background: #e6d5f0;
+}
+
+/* ---- Scrollbar polish ---- */
+.sign-card::-webkit-scrollbar {
+  width: 8px;
+}
+.sign-card::-webkit-scrollbar-thumb {
+  background: #e0d4e8;
+  border-radius: 8px;
+}

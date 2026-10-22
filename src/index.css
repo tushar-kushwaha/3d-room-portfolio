@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent scrollbars and ensure the root container takes the full viewport */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #d9cad1; /* Matches your Canvas background */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Ensure canvas stretches smoothly */
+canvas {
+  touch-action: none; /* Prevents touch scrolling issues on mobile devices */
+  display: block;
+}

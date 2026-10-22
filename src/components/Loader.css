@@ -1,0 +1,166 @@
+/* Palette taken from the room itself */
+.loader {
+  --blush: #f4b6b6;
+  --stripe: #fbe3df;
+  --peach: #f9cfc0;
+  --wood: #d9955f;
+  --wood-dark: #b9743f;
+  --mauve: #dbcad3;
+  --cocoa: #6b4a3a;
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+  color: var(--cocoa);
+  background: radial-gradient(circle at 50% 38%, #fff4ec 0%, #f6d8d6 55%, var(--mauve) 100%);
+  font-family: "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.loader--hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ---- Spinning room cube ------------------------------------------------- */
+.loader__scene {
+  position: relative;
+  width: 120px;
+  height: 130px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  perspective: 500px;
+}
+
+.loader__hop {
+  animation: loader-hop 1.3s ease-in-out infinite;
+}
+
+.loader__cube {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  transform-style: preserve-3d;
+  animation: loader-spin 5s linear infinite;
+}
+
+.loader__face {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  backface-visibility: hidden;
+}
+
+/* Four walls wear the room's striped wallpaper */
+.loader__face--wall-a,
+.loader__face--wall-b,
+.loader__face--wall-c,
+.loader__face--wall-d {
+  background: repeating-linear-gradient(90deg, var(--blush) 0 8px, var(--stripe) 8px 16px);
+}
+.loader__face--wall-a { transform: translateZ(32px); }
+.loader__face--wall-b { transform: rotateY(90deg) translateZ(32px); filter: brightness(0.96); }
+.loader__face--wall-c { transform: rotateY(180deg) translateZ(32px); }
+.loader__face--wall-d { transform: rotateY(-90deg) translateZ(32px); filter: brightness(0.96); }
+
+.loader__face--roof {
+  background: var(--peach);
+  transform: rotateX(90deg) translateZ(32px);
+}
+
+.loader__face--floor {
+  background: var(--wood);
+  transform: rotateX(-90deg) translateZ(32px);
+}
+
+.loader__shadow {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 62px;
+  height: 12px;
+  margin-left: -31px;
+  border-radius: 50%;
+  background: rgba(107, 74, 58, 0.22);
+  animation: loader-shadow 1.3s ease-in-out infinite;
+}
+
+@keyframes loader-spin {
+  from { transform: rotateX(-26deg) rotateY(0deg); }
+  to { transform: rotateX(-26deg) rotateY(360deg); }
+}
+
+@keyframes loader-hop {
+  0%, 100% { transform: translateY(18px); }
+  50% { transform: translateY(0); }
+}
+
+@keyframes loader-shadow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.65); opacity: 0.55; }
+}
+
+/* ---- Text and progress -------------------------------------------------- */
+.loader__title {
+  margin: 8px 0 0;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.loader__message {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.loader__message--error {
+  max-width: 320px;
+  opacity: 1;
+  color: #a3412f;
+}
+
+.loader__bar {
+  width: min(240px, 70vw);
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(107, 74, 58, 0.15);
+}
+
+.loader__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--blush), var(--wood));
+  transition: width 0.3s ease;
+}
+
+.loader__percent {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader__hop,
+  .loader__cube,
+  .loader__shadow {
+    animation: none;
+  }
+  .loader__cube { transform: rotateX(-26deg) rotateY(35deg); }
+  .loader__bar-fill,
+  .loader { transition-duration: 0.01s; }
+}
