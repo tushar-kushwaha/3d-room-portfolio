@@ -1,16 +1,101 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🏠 Interactive 3D Room Portfolio
 
-Currently, two official plugins are available:
+**A cozy 3D room you can explore, click and play with. It's also my portfolio.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[**▶ Live demo**](YOUR-LIVE-LINK-HERE) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/tushar-kushwaha-263256435/) &nbsp;|&nbsp; [GitHub](https://github.com/tushar-kushwaha)
 
-## React Compiler
+![Room preview](screenshots/first.png)
+[Room preview](screenshots/second.png)
+[Room preview](screenshots/s.png)
+[Room preview](screenshots/pf.png)
+[Room preview](screenshots/mw.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Blender](https://img.shields.io/badge/Blender-E87D0D?style=for-the-badge&logo=blender&logoColor=white)
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## About
+
+Instead of a normal portfolio page, I built a small 3D room. Every object in it is something you can point at, click or open. The signboards on the left lead to my work, my story and my contact details.
+
+I modeled the room in Blender and brought it to the web with React Three Fiber.
+
+## What you can do
+
+| Action | Where | What happens |
+|--------|-------|--------------|
+| Drag | Anywhere | Rotate the room |
+| Hover | Desk props (mug, boba, Batman and GitHub logos) | They grow |
+| Hover | Computer | A plushy pops out of the screen |
+| Hover | Aquarium | The fish start to swim |
+| Hover, then double-click | Photo frames | Enlarge, then zoom the camera in. Double-click again to zoom out |
+| Click | Chair | Spins 360° |
+| Click | Name sign | Changes color |
+| Click | Signboards (My Work, About, Contact) | Opens a popup with details |
+
+There is also a loading screen, a live video on the monitor and background music (starts after your first click, with a mute button).
+
+## Built with
+
+- **React** and **Vite** for the app
+- **Three.js** with **React Three Fiber** and **drei** for the 3D scene
+- **Blender** for the room model, exported as a Draco-compressed GLB
+- Plain **CSS** for the loader, the guide panel and the popups
+
+## Performance choices
+
+A detailed 3D scene can get heavy, so I made a few deliberate trade-offs:
+
+- Glass and water use simple transparency instead of real transmission, which would re-render the scene for every object
+- Decorative meshes are skipped during raycasting, so only interactive objects are hit-tested on mouse move
+- Textures are WebP, and the model is Draco-compressed
+- The video texture has mipmaps turned off, and the video pauses when the tab is hidden
+
+## Run it locally
+
+```bash
+git clone https://github.com/tushar-kushwaha/3d-room-portfolio.git
+cd 3d-room-portfolio
+npm install
+npm run dev
+```
+
+Then open the address Vite prints (usually `http://localhost:5173`).
+
+To make a production build:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project structure
+
+```
+public/        3D model, textures, images, video and audio
+src/
+  components/  Room (the 3D scene), Loader, InfoPanel, SignPopup, BackgroundMusic
+  data/        Text content for the signboard popups
+  App.jsx      Canvas, camera and controls
+```
+
+## Credits
+
+- Room design, modeling and code: **Tushar Kushwaha**
+- Background music: *[track name]* by *[artist]* ([link])
+- Tutorial that got me started: *[tutorial name]* by *[creator]* ([link])
+
+---
+
+<div align="center">
+
+If you like the room, a ⭐ on the repo means a lot.
+
+</div>
