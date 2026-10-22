@@ -4,7 +4,7 @@ import { OrbitControls, Center, Stats } from "@react-three/drei";
 import { Room } from "./components/Room";
 import * as THREE from "three";
 import { BackgroundMusic } from "./components/BackgroundMusic";
-import { SignPopup } from "./components/SignPopup";
+import { SignPopup } from "./components/Signpopup";
 import Loader from "./components/Loader";
 import InfoPanel from "./components/InfoPanel";
 
