@@ -6,11 +6,14 @@
 
 [**▶ Live demo**](YOUR-LIVE-LINK-HERE) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/tushar-kushwaha-263256435/) &nbsp;|&nbsp; [GitHub](https://github.com/tushar-kushwaha)
 
-![Room preview](screenshots/first.png)
-[Room preview](screenshots/second.png)
-[Room preview](screenshots/s.png)
-[Room preview](screenshots/pf.png)
-[Room preview](screenshots/mw.png)
+![Room preview](docs/first.png)
+
+<p align="center">
+  <img src="docs/second.png" width="23%" alt="Screenshot 2" />
+  <img src="docs/s.png" width="23%" alt="Screenshot 3" />
+  <img src="docs/pf.png" width="23%" alt="Screenshot 4" />
+  <img src="docs/mw.png" width="23%" alt="Screenshot 5" />
+</p>
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
