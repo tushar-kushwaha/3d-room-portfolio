@@ -3,10 +3,10 @@ import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { OrbitControls, Center, Stats } from "@react-three/drei";
 import { Room } from "./components/Room";
 import * as THREE from "three";
-import { BackgroundMusic } from "./components/Backgroundmusic";
-import { SignPopup } from "./components/Signpopup";
+import { BackgroundMusic } from "./components/BackgroundMusic";
+import { SignPopup } from "./components/SignPopup";
 import Loader from "./components/Loader";
-import InfoPanel from "./components/Infopanel";
+import InfoPanel from "./components/InfoPanel";
 
 
 function CameraRig({ position, target, fov, zoomFov, zoomedFrameRef, controlsEnabled }) {
