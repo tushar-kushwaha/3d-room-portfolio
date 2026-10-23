@@ -4,7 +4,7 @@
 
 **A cozy 3D room you can explore, click and play with. It's also my portfolio.**
 
-[**▶ Live demo**](YOUR-LIVE-LINK-HERE) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/tushar-kushwaha-263256435/) &nbsp;|&nbsp; [GitHub](https://github.com/tushar-kushwaha)
+[**▶ Live demo**](https://3d-room-portfolio-zuaa.vercel.app/) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/tushar-kushwaha-263256435/) &nbsp;|&nbsp; [GitHub](https://github.com/tushar-kushwaha)
 
 ![Room preview](docs/first.png)
 
